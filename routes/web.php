@@ -17,7 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/user/{user:username}', [DonationController::class, 'create']);
+    Route::get('/user/{user:username}', [DonationController::class, 'create'])->name('donations.create');
+    Route::post('/donations', [DonationController::class, 'store'])->name('donations.store');
+    Route::get('/donations/{donation:id}/success', [DonationController::class, 'success'])->name('donations.success');
 });
 
 require __DIR__ . '/auth.php';

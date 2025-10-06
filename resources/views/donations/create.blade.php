@@ -3,7 +3,7 @@
         You will send donation to <span class="font-bold">{{ $user->username }}</span>
     </div>
 
-    <form action="" method="POST">
+    <form action="{{ route('donations.store') }}" method="POST">
         @csrf
 
         <input type="hidden" name="user_id" value="{{ $user->id }}">
